@@ -1,4 +1,5 @@
 '''Calculator Test'''
+import pytest
 from app.main import addition, subtraction, multiplication, division
 
 def test_addition():
@@ -16,3 +17,8 @@ def test_multiplication():
 def test_division():
     '''Division function'''
     assert division(1,1) == 1
+
+def test_negative_division():
+    '''Negative division test'''
+    with pytest.raises(ZeroDivisionError):
+        division(10,0)
