@@ -1,11 +1,17 @@
-# main.py
+"""
+Simple REPL interface for the calculator.
+"""
 from calculator import Calculator
 
 def repl():
+    """Simple REPL for user to interact with the calculator."""
     calc = Calculator()
-    print("Welcome to the REPL Calculator. Type 'exit' to quit. Type 'history' to view history. Type 'undo' to undo last.")
+
+    print("Simple Calculator. Type 'exit' to quit. Type 'history' to view history. Type 'undo' to undo last.")
+    
     while True:
         user_input = input("Enter operation (e.g., 1 1 add): ").strip()
+        
         if user_input.lower() == 'exit':
             break
         elif user_input.lower() == 'history':
