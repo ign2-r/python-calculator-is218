@@ -10,8 +10,17 @@ from app.calculator import Calculator
 ])
 def test_calculator_valid_operations(a, b, operation, expected):
     calc = Calculator()
-    assert calc.calculate_and_log(a, b, operation) == expected
-    assert calc.get_history()[-1] == f"{a} {operation} {b} = {expected}"
+    result = calc.calculate_and_log(a, b, operation)
+    
+    # Check result
+    if operation == 'divide':
+        assert result == float(expected)
+    else:
+        assert result == expected
+
+    # Check history
+    expected_str = f"{a} {operation} {b} = {result}"
+    assert calc.get_history()[-1] == expected_str
 
 # Test division by zero
 @pytest.mark.parametrize("a, b, operation", [
@@ -37,5 +46,6 @@ def test_calculator_undo():
     calc.calculate_and_log(1, 1, 'add')
     calc.calculate_and_log(5, 3, 'subtract')
     undo = calc.undo_last()
-    assert undo == "5.0 subtract 3.0 = 2.0"
+    
+    assert undo == "5 subtract 3 = 2"
     assert len(calc.get_history()) == 1

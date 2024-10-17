@@ -1,7 +1,7 @@
 """
 Simple REPL interface for the calculator.
 """
-from calculator import Calculator
+from app.calculator import Calculator
 
 def repl():
     """Simple REPL for user to interact with the calculator."""
