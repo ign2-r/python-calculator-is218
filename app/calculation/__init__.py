@@ -3,7 +3,7 @@ Calculation module: abstract base class for calculator operations.
 """
 from abc import ABC, abstractmethod
 from typing import Union
-from operations import addition, subtraction, multiplication, division
+from app.operations import addition, subtraction, multiplication, division
 
 class Calculation(ABC):
     """Abstract base class for calculator operations."""

@@ -2,8 +2,8 @@
 Calculator: ties together the calculation and history management.
 """
 from typing import Union
-from calculation import BasicCalculation
-from historymanager import HistoryManager
+from app.calculation import BasicCalculation
+from app.historymanager import HistoryManager
 
 class Calculator:
     """Class that integrates calculation and history management."""
