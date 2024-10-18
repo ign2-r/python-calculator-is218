@@ -1,3 +1,10 @@
+"""
+Unit tests for the arithmetic functions in the app.operations module.
+
+This module contains tests for addition, subtraction, multiplication, 
+and division, including a test for division by zero.
+"""
+
 import pytest
 from app.operations import addition, subtraction, multiplication, division
 
@@ -8,6 +15,9 @@ from app.operations import addition, subtraction, multiplication, division
     (5, 5, 10)
 ])
 def test_addition(a, b, expected):
+    """
+    Test that the addition function returns the correct result.
+    """
     assert addition(a, b) == expected
 
 # Test subtraction
@@ -17,6 +27,9 @@ def test_addition(a, b, expected):
     (10, 5, 5)
 ])
 def test_subtraction(a, b, expected):
+    """
+    Test that the subtraction function returns the correct result.
+    """
     assert subtraction(a, b) == expected
 
 # Test multiplication
@@ -26,6 +39,9 @@ def test_subtraction(a, b, expected):
     (5, 5, 25)
 ])
 def test_multiplication(a, b, expected):
+    """
+    Test that the multiplication function returns the correct result.
+    """
     assert multiplication(a, b) == expected
 
 # Test division
@@ -35,6 +51,9 @@ def test_multiplication(a, b, expected):
     (10, 5, 2)
 ])
 def test_division(a, b, expected):
+    """
+    Test that the division function returns the correct result.
+    """
     assert division(a, b) == expected
 
 # Test division by zero
@@ -43,5 +62,8 @@ def test_division(a, b, expected):
     (5, 0)
 ])
 def test_division_by_zero(a, b):
+    """
+    Test that division by zero raises a ValueError.
+    """
     with pytest.raises(ValueError, match="Cannot divide by zero."):
         division(a, b)
