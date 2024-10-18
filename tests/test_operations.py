@@ -63,7 +63,6 @@ def test_division(a, b, expected):
 ])
 def test_division_by_zero(a, b):
     """
-    Test that division by zero raises a ValueError.
+    Test that division by zero returns the appropriate error message.
     """
-    with pytest.raises(ValueError, match="Cannot divide by zero."):
-        division(a, b)
+    assert division(a, b) == "Cannot divide by zero."

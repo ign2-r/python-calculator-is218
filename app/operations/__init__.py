@@ -1,6 +1,7 @@
 """
 Operations module: basic calculator functions.
 """
+from typing import Union
 
 def addition(a: float, b: float) -> float:
     """Perform addition."""
@@ -14,8 +15,7 @@ def multiplication(a: float, b: float) -> float:
     """Perform multiplication."""
     return a * b
 
-def division(a: float, b: float) -> float:
-    """Perform division, with zero division handling."""
+def division(a: float, b: float) -> Union[float, str]:
     if b == 0:
-        raise ValueError("Cannot divide by zero.")
+        return "Cannot divide by zero."
     return a / b
