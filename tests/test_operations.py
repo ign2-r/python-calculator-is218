@@ -6,7 +6,7 @@ and division, including a test for division by zero.
 """
 
 import pytest
-from app.operations import addition, subtraction, multiplication, division
+from app.operations import addition, subtraction, multiplication, division, modulo, power
 
 # Test addition
 @pytest.mark.parametrize("a, b, expected", [
@@ -66,3 +66,38 @@ def test_division_by_zero(a, b):
     Test that division by zero returns the appropriate error message.
     """
     assert division(a, b) == "Cannot divide by zero."
+
+# Test modulo
+@pytest.mark.parametrize("a, b, expected", [
+    (10, 3, 1),
+    (9, 2, 1),
+    (15, 5, 0)
+])
+def test_modulo(a, b, expected):
+    """
+    Test that modulo function returns correct result.
+    """
+    assert modulo(a, b) == expected
+
+# Test modulo by zero
+@pytest.mark.parametrize("a, b", [
+    (10, 0),
+    (5, 0)
+])
+def test_modulo_by_zero(a, b):
+    """
+    Test that modulo-ing by zero returns appropriate error message.
+    """
+    assert modulo(a, b) == "Cannot modulo by zero."
+
+# Test power
+@pytest.mark.parametrize("a, b, expected", [
+    (2, 3, 8),
+    (5, 2, 25),
+    (10, 0, 1)
+])
+def test_power(a, b, expected):
+    """
+    Test that using exponents works as intended.
+    """
+    assert power(a, b) == expected
